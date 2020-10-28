@@ -1,18 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react'
+import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
+import Button from '@material-ui/core/Button';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
+import Menu from "./layout/Menu";
+import  EnhancedTable from "./layout/EnhancedTable";
 
-function App() {
-    return (
-        <div className="App">
-            <header>
-                <img src={logo} className="App-logo" alt="logo" />
-                <h1>We now have Auth!</h1>
-            </header>
+const App = () => (
+    <div>
+        <div style={{float: 'right'}}>
             <AmplifySignOut />
         </div>
-    );
-}
+        <div style={{float: 'left'}}>
+            <Menu />
+        </div>
+        <div style={{float: 'right'}}>
+            <EnhancedTable/>
+        </div>
+
+    </div>
+);
 
 export default withAuthenticator(App);
